@@ -182,10 +182,10 @@ class MapboxNavigationView(private val context: ThemedReactContext) : Navigation
     }
 
     override fun onNavigationFinished() {
-
     }
 
     override fun onCancelNavigation() {
+        this.stopNavigation()
         val event = Arguments.createMap()
         event.putString("onCancelNavigation", "Navigation Closed")
         context.getJSModule(RCTEventEmitter::class.java).receiveEvent(id, "onCancelNavigation", event)
@@ -199,7 +199,18 @@ class MapboxNavigationView(private val context: ThemedReactContext) : Navigation
 
     override fun onStop() {
         super.onStop()
+        this.onStop()
         this.mapboxNavigation?.unregisterLocationObserver(locationObserver)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        this.onResume()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        this.onPause()
     }
 
     fun setOrigin(origin: Point?) {

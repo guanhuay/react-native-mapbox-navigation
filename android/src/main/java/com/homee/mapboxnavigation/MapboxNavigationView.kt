@@ -182,6 +182,7 @@ class MapboxNavigationView(private val context: ThemedReactContext) : Navigation
     }
 
     override fun onNavigationFinished() {
+
     }
 
     override fun onCancelNavigation() {
@@ -201,16 +202,6 @@ class MapboxNavigationView(private val context: ThemedReactContext) : Navigation
         super.onStop()
         this.onStop()
         this.mapboxNavigation?.unregisterLocationObserver(locationObserver)
-    }
-
-    override fun onResume() {
-        super.onResume()
-        this.onResume()
-    }
-
-    override fun onPause() {
-        super.onPause()
-        this.onPause()
     }
 
     fun setOrigin(origin: Point?) {

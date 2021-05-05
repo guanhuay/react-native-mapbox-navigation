@@ -120,7 +120,8 @@ class MapboxNavigationView: UIView, NavigationViewControllerDelegate {
     if (!canceled) {
       return;
     }
-    
+    navigationViewController.navigationService.stop()
+    navigationViewController.dismiss(animated: true, completion: nil)
     onCancelNavigation?(["message": ""]);
   }
   
